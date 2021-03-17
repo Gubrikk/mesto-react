@@ -3,11 +3,7 @@
 .footer {
     flex-shrink: 0;
     padding-bottom: 60px;
-}
-
-@media (max-width: 882px) {
-    .footer {
-        padding-right: 19px;
-        padding-left: 19px;
-    }
+    padding-top: 60px;
+    margin: 0 auto;
+    max-width: 882px;
 }
