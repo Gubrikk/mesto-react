@@ -5,6 +5,7 @@
 @import url(./__info-like-counter/element__info-like-counter.css);
 @import url(./__info/element__info.css);
 @import url(./__trash/element__trash.css);
+@import url(./__trash/_active/element__trash_active.css);
 @import url(./__title/element__title.css);
 
 .element {

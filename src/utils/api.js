@@ -27,7 +27,7 @@ class Api {
             headers: this._headers,
             body: JSON.stringify({
                 name: data.name,
-                about: data.about
+                about: data.description
             })
         })
             .then(this._checkResponse)
@@ -36,12 +36,12 @@ class Api {
             });
     }
 
-    updateAvatar(avatar) {
+    updateAvatar(data) {
         return fetch(`${this._url}users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
-            avatar: avatar
+                avatar: data.avatar
             })
         })
             .then(this._checkResponse)
@@ -65,8 +65,8 @@ class Api {
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify({
-            name: data.name,
-            link: data.link
+                name: data.name,
+                link: data.link
             })
         })
             .then(this._checkResponse)
@@ -75,8 +75,8 @@ class Api {
         });
     }
   
-    deleteCard(card) {
-        return fetch(`${this._url}cards/${card}`, {
+    deleteCard(id) {
+        return fetch(`${this._url}cards/${id}`, {
             method: 'DELETE',
             headers: this._headers
         })
@@ -86,35 +86,30 @@ class Api {
         });
     }
 
-    addLikeCard(card) {
-        return fetch(`${this._url}cards/likes/${card}`, {
-            method: 'PUT',
-            headers: this._headers
-        })
+    changeLikeCardStatus(id, isLiked) {
+        if (isLiked) {
+            return fetch(`${this._url}cards/likes/${id}`, {
+                method: 'PUT',
+                headers: this._headers
+            })
+            .then(this._checkResponse);
+            } else {
+                return fetch(`${this._url}cards/likes/${id}`, {
+                    method: 'DELETE',
+                    headers: this._headers
+                })
             .then(this._checkResponse)
             .catch((err) => {
                 console.log(err);
-        });
-    }
-    
-    deleteLikeCard(card) {
-        return fetch(`${this._url}cards/likes/${card}`, {
-            method: 'DELETE',
-            headers: this._headers
-        })
-            .then(this._checkResponse)
-            .catch((err) => {
-                console.log(err);
-        });
+            });    
+        }
     }
 }
 
-const api = new Api({
+export const api = new Api({
     url: "https://mesto.nomoreparties.co/v1/cohort-20/",
     headers: {
         'content-type': 'application/json',
         'authorization': '80281606-7e64-45b0-a996-6277fb44273c',
     }
 })
-
-export default api
