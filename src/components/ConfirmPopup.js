@@ -1,5 +1,5 @@
 import React from 'react';
-import PopupWithForm from './PupupWithForm';
+import PopupWithForm from './PopupWithForm';
 
 function ConfirmPopup({ isOpen, onClose, onCloseOverlay, onConfirmDelete }) {
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import PopupWithForm from './PupupWithForm';
+import PopupWithForm from './PopupWithForm';
 
 function AddPlacePopup ({isOpen, onClose, onCloseOverlay, onAddPlace}) {
     const nameRef = React.useRef();

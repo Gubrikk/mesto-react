@@ -1,6 +1,6 @@
 import React from 'react';
 import { api } from '../utils/api';
-import { CurrentUserContext } from '../context/currentUserContext';
+import { CurrentUserContext } from '../contexts/currentUserContext';
 import Header from './Header.js';
 import Main from './Main.js';
 import Footer from './Footer.js';
