@@ -22,6 +22,7 @@ function EditAvatarPopup ({isOpen, onClose, onUpdateAvatar, onCloseOverlay}) {
     <PopupWithForm
 		name="update-avatar"
 		title="Обновить аватар"
+        buttonText="Обновить аватар"
 		isOpen={isOpen}
         onClose={onClose}
         onCloseByOverlay={onCloseOverlay}
@@ -35,7 +36,6 @@ function EditAvatarPopup ({isOpen, onClose, onUpdateAvatar, onCloseOverlay}) {
             ref={avatarRef}
 		/>
 		<span className="error" id="avatar-edit-error" />
-		<button className="popup__submit-button" type="submit" aria-label="Обновить аватар">Обновить</button>
 	</PopupWithForm>
   	);
 }

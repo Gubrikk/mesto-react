@@ -10,7 +10,7 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser, onCloseOverlay}) {
   	React.useEffect(() => {
     	setName(currentUser.name);
     	setDescription(currentUser.about);
-  	}, [currentUser]);
+  	},  [currentUser, isOpen]);
 
   	function handleNameChange(evt) {
     	setName(evt.target.value);
@@ -30,6 +30,7 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser, onCloseOverlay}) {
     	<PopupWithForm
 			name="edit-profile"
 			title="Редактировать профиль"
+			buttonText="Сохранить"
 			isOpen={isOpen}
 			onClose={onClose}
 			onCloseByOverlay={onCloseOverlay}
@@ -58,7 +59,6 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser, onCloseOverlay}) {
             onChange={handleDescriptionChange}
 		/>
 		<span className="error" id="job-error" />
-		<button className="popup__submit-button" type="submit" aria-label="Сохранить профиль">Сохранить</button>
 	</PopupWithForm>
     )
 }

@@ -72,8 +72,7 @@ function App() {
 		const isLiked = card.likes.some(i => i._id === currentUser._id);
 		    api.changeLikeCardStatus(card._id, !isLiked)
 		        .then((newCard) => {
-			        const newCards = cards.map((c) => c._id === card._id ? newCard : c);
-			        setCards(newCards);
+					setCards((state) => state.map((c) => c._id === card._id ? newCard : c))
 		        })
 		        .catch((err) => {
 			        console.error(err);
@@ -88,46 +87,45 @@ function App() {
 	function handleCardDeleteConfirm() {
 		api.deleteCard(selectedCard._id)
 		    .then(() => {
-			    const newCards = cards.filter((c) => c._id !== selectedCard._id);
-			    setCards(newCards);
+				setCards((state) => state.filter((c) => c._id !== selectedCard._id))
+				closeAllPopups();
 		    })
 		    .catch((err) => {
 			    console.error(err);
 		    });
-		closeAllPopups();
 	}
 
 	function handleUpdateUser(user) {
 		api.setUserInfo(user)
 		    .then((user) => {
 			    setCurrentUser(user);
+				closeAllPopups();
 		    })
 		    .catch((err) => {
 			    console.error(err);
 		    });
-		closeAllPopups();
 	}
 
 	function handleUpdateAvatar(user) {
 		api.updateAvatar(user)
 		    .then((user) => {
 			    setCurrentUser(user);
+				closeAllPopups();
 		    })
 		    .catch((err) => {
 			    console.error(err);
 		    });
-		closeAllPopups();
 	}
 
 	function handleAddPlace (newCard) {
 		api.addNewCard(newCard)
 		    .then((newCard) => {
 			    setCards([newCard, ...cards]);
+				closeAllPopups();
 		    })
 		    .catch((err) => {
 			    console.error(err);
 		    });
-		closeAllPopups();
 	}
 
   	function closeAllPopups() {

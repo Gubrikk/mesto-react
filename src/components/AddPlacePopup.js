@@ -23,6 +23,7 @@ function AddPlacePopup ({isOpen, onClose, onCloseOverlay, onAddPlace}) {
     	<PopupWithForm
 			name="add-place"
 			title="Новое место"
+			buttonText="Добавить место"
 			isOpen={isOpen}
         	onClose={onClose}
 			onCloseByOverlay={onCloseOverlay}
@@ -46,7 +47,6 @@ function AddPlacePopup ({isOpen, onClose, onCloseOverlay, onAddPlace}) {
          	ref={linkRef}
 		/>
 		<span className="error" id="link-image-error" />
-		<button className="popup__submit-button" type="submit" aria-label="Добавить место">Создать</button>
   	</PopupWithForm>
   	);
 }

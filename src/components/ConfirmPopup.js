@@ -12,11 +12,11 @@ function ConfirmPopup({ isOpen, onClose, onCloseOverlay, onConfirmDelete }) {
     	<PopupWithForm
       		name="remove-card"
       		title="Вы уверены?"
+			buttonText="Удалить"
       		isOpen={isOpen}
       		onClose={onClose}
       		onCloseByOverlay={onCloseOverlay}
       		onSubmit={handleSubmit}>
-      		<button className="popup__submit-button" type="submit" aria-label="Удалить карточку">Да</button>
     	</PopupWithForm>
   	);
 }
